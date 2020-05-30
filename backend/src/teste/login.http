@@ -1,0 +1,6 @@
+Post http://localhost:3333/login-cliente
+Content-Type: application/json
+{
+  "email": "anoemangi@gmail.com",
+  "senha": "1234567"    
+}
