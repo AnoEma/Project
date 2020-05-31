@@ -8,7 +8,7 @@ const enviarMail = nodemailer.createTransport({
   // port: 25,
   auth: {
     user: "maisonarnoboys@gmail.com",
-    pass: "*********"
+    pass: "21arnoboys@"
   }
 });
 
@@ -54,7 +54,12 @@ module.exports = {
     }
 
     if(validacaoDeSenhaToken != null){
-      await connection('recupera').where('email_recuperador', email).update('validacaoDeSenha', validacaoDeSenhaToken);
+      const dataRegistro = new Date();
+      await connection('recupera').where('email_recuperador', email)
+      .update('validacaoDeSenha', validacaoDeSenhaToken);
+      await connection('recupera').where('email_recuperador', email)
+      .update('data', dataRegistro.toString());
+
       return Response.status(200).json("Show Ano de certo novamente");
     }
   },

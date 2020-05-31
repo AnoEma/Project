@@ -11,8 +11,8 @@ export default function EsqueceSenha(){
     <div className="cadastro-container">
       <div className="content">
         <section>
-          <h1>Cadastro</h1>
-          <p>Faça seu cadastro</p>
+          <h1>Recuperar a Senha de Login</h1>
+          <p>Digite seu E-mail de Login</p>
           <Link className="back-link" to="/">
             <FiArrowLeft size={16} color="#E02041"/>
               Volta na Pagina inicial
@@ -24,7 +24,7 @@ export default function EsqueceSenha(){
           // value={email}
           // onChange={e => setEmail(e.target.value)}
           />
-           <button className="button" type="submit">Cadastar</button>
+           <button className="button" type="submit">Enviar</button>
         </form>
       </div>
     </div>
