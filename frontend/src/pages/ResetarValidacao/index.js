@@ -13,9 +13,9 @@ export default function ValidarSenhaRecuperado(){
         <section>
           <h1>Recuperar a Senha de Login</h1>
           <p>Enviaremos o codido da seguração, verificar no E-mail</p>
-          <Link className="back-link" to="/">
+          <Link className="back-link" to="/esqueceu-senha">
             <FiArrowLeft size={16} color="#E02041"/>
-              Volta na Pagina inicial
+              Volta na Pagina anterior
           </Link>
         </section>
         <form>

@@ -4,16 +4,17 @@ import {FiArrowLeft} from 'react-icons/fi';
 import './styles.css';
 import { useState } from 'react';
 
-export default function EsqueceSenha(){
+export default function NovoSenhaRecuperado(){
     const [email,setEmail] = useState('');
+    const [senha,setSenha] = useState('');
 
   return(
-    <div className="cadastro-container">
+    <div className="novosenha-container">
       <div className="content">
         <section>
-          <h1>Recuperar a Senha de Login</h1>
-          <p>Digite seu E-mail de Login</p>
-          <Link className="back-link" to="/">
+          <h1>Recuperar a Senha</h1>
+          <p>Informa Email e a nova Senha</p>
+          <Link className="back-link" to="/validacao">
             <FiArrowLeft size={16} color="#E02041"/>
               Volta na Pagina anterior
           </Link>
@@ -24,7 +25,12 @@ export default function EsqueceSenha(){
           // value={email}
           // onChange={e => setEmail(e.target.value)}
           />
-           <button className="button" type="submit">Enviar</button>
+          <input 
+          placeholder="Nova Senha"
+          // value={senha}
+          // onChange={e => setSenha(e.target.value)}
+          />
+           <button className="button" type="submit">Finalizar</button>
         </form>
       </div>
     </div>
