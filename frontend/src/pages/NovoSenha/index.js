@@ -3,6 +3,8 @@ import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import '../Cadastro/styles.css';
 import { useState } from 'react';
+import api from '../../services/api';
+
 
 
 export default function NovoSenhaRecuperado(){
@@ -19,7 +21,7 @@ export default function NovoSenhaRecuperado(){
       };
 
       try{
-         await applicationCache.post('banco', data);
+         await api.post('banco', data);
          history.push('/');
       } catch(err){
         alert('Erro Arnoboys');

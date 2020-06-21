@@ -56,14 +56,16 @@
 
 .globalstyle-container .content form .input-checkbox{
     display: flex;
-    width: 25%;
-    height: 50px;
-    max-width: 50px;
-    max-height: 50px;
-    margin-top: 3px;
-    margin-left: 3px;
+    padding: 2px;
 }
 
 .globalstyle-container .content form .input-checkbox input + input{
     margin-top: 3px;
+}
+
+.globalstyle-container .content form .input-checkbox label{
+    font: 1rem 'Fira Sans', sans-serif;
+    align-items: flex-end;
+    margin-left: 8px;
+    margin-top: 5px;
 }

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {FiLogIn,FiPlus} from 'react-icons/fi';
+import api from '../../services/api';
+
 
 
 
@@ -16,7 +18,7 @@ export default function Login(){
       e.preventDefault();
 
       try{
-          await applicationCache.post('login-usuario', {email, senha});
+          await api.post('login-usuario', {email, senha});
         
         localStorage.setItem('email', email, 'senha', senha);
         

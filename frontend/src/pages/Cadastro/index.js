@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
+import api from '../../services/api';
 
 import './styles.css';
 // import bugerImg from '../../assets/shop.svg';
@@ -28,7 +29,7 @@ export default function Cadastrar(){
     };
 
     try{
-      const response = await applicationCache.post('cadastro', data);
+      const response = await api.post('cadastro', data);
 
       alert(`Seu ID de acesso: ${response.data.id}`);
       history.push('/');
@@ -89,11 +90,11 @@ export default function Cadastrar(){
           onChange={e => setSenha(e.target.value)}
           />
           <div className="input-checkbox">
-          {/* <label for="aceitarReceberEmail"> Aceitar Receber E-mail</label> */}
           <input type="checkbox" value={aceitarReceberEmail} 
           id="aceitarReceberEmail" style={{width:20}}
           onChange={e => setAceitarReceberEmail(e.target.value)}
           />
+          <label for="aceitarReceberEmail"> Aceitar Receber E-mail</label>
           </div>
           <button className="button" type="submit">Cadastar</button>
         </form>

@@ -1,11 +1,25 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import '../Cadastro/styles.css';
 import { useState } from 'react';
+import api from '../../services/api';
 
 export default function ValidarSenhaRecuperado(){
     const [tokenSenha,setTokenSenha] = useState('');
+    const history = useHistory();
+
+    async function handValidarSenhaRecuperado(e){
+      e.preventDefaul();
+
+      const data = {tokenSenha};
+      try {
+        await api.post('banco', data);
+        history.push('/');
+      } catch(err){
+        alert('O Teken Incorreto');
+      }
+    }
 
   return(
     <div className="globalstyle-container">
@@ -18,7 +32,7 @@ export default function ValidarSenhaRecuperado(){
               Volta na Pagina anterior
           </Link>
         </section>
-        <form>
+        <form onSubmit={handValidarSenhaRecuperado}>
         <input 
           placeholder="Token"
           value={tokenSenha}

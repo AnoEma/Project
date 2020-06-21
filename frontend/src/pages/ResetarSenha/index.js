@@ -3,6 +3,8 @@ import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import '../Cadastro/styles.css';
 import { useState } from 'react';
+import api from '../../services/api';
+
 
 export default function EsqueceSenha(){
     const [email,setEmail] = useState('');
@@ -13,7 +15,7 @@ export default function EsqueceSenha(){
 
       const data={email};
       try{
-          await applicationCache.post('banco', data);
+          await api.post('banco', data);
           history.push('/validacao');
       }catch(err){
         alert('Vai se ferra vacilando');
