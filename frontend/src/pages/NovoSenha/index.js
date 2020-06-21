@@ -1,15 +1,33 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
-import './styles.css';
+import '../Cadastro/styles.css';
 import { useState } from 'react';
+
 
 export default function NovoSenhaRecuperado(){
     const [email,setEmail] = useState('');
     const [senha,setSenha] = useState('');
+    const history = useHistory();
+
+    async function handNovoSenha(e){
+      e.preventDefaul();
+
+      const data={
+        email,
+        senha
+      };
+
+      try{
+         await applicationCache.post('banco', data);
+         history.push('/');
+      } catch(err){
+        alert('Erro Arnoboys');
+      }
+    }
 
   return(
-    <div className="novosenha-container">
+    <div className="globalstyle-container">
       <div className="content">
         <section>
           <h1>Recuperar a Senha</h1>
@@ -19,16 +37,16 @@ export default function NovoSenhaRecuperado(){
               Volta na Pagina anterior
           </Link>
         </section>
-        <form>
+        <form onSubmit={handNovoSenha}>
         <input 
           placeholder="E-mail"
-          // value={email}
-          // onChange={e => setEmail(e.target.value)}
+          value={email}
+          onChange={e => setEmail(e.target.value)}
           />
           <input 
           placeholder="Nova Senha"
-          // value={senha}
-          // onChange={e => setSenha(e.target.value)}
+          value={senha}
+          onChange={e => setSenha(e.target.value)}
           />
            <button className="button" type="submit">Finalizar</button>
         </form>

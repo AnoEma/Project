@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
-import './styles.css';
+import '../Cadastro/styles.css';
 import { useState } from 'react';
 
 export default function ValidarSenhaRecuperado(){
     const [tokenSenha,setTokenSenha] = useState('');
 
   return(
-    <div className="recupera-container">
+    <div className="globalstyle-container">
       <div className="content">
         <section>
           <h1>Recuperar a Senha de Login</h1>
@@ -21,8 +21,8 @@ export default function ValidarSenhaRecuperado(){
         <form>
         <input 
           placeholder="Token"
-          // value={tokenSenha}
-          // onChange={e => setTokenSenha(e.target.value)}
+          value={tokenSenha}
+          onChange={e => setTokenSenha(e.target.value)}
           />
            <button className="button" type="submit">Enviar</button>
         </form>

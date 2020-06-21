@@ -16,7 +16,7 @@ export default function Login(){
       e.preventDefault();
 
       try{
-        const response = await applicationCache.post('login-usuario', {email, senha});
+          await applicationCache.post('login-usuario', {email, senha});
         
         localStorage.setItem('email', email, 'senha', senha);
         
@@ -29,7 +29,7 @@ export default function Login(){
    <div className="login-container">
      <img src={bugerImg} alt="Buger"/>
      <section className="form">
-      <form >
+      <form onSubmit={handLogin}>
        <h1>Welcome</h1>
 
        <input placeholder="E-mail Address" value={email} 
