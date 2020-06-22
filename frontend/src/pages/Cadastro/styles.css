@@ -54,16 +54,19 @@
     margin-left: 8px;
 }
 
-.globalstyle-container .content form .input-checkbox{
-    display: flex;
-    padding: 2px;
+.input-checkbox{
+    margin-top: 10px;
 }
-
-.globalstyle-container .content form .input-checkbox input + input{
-    margin-top: 3px;
+.checkbox 
+{ display: inline-block;
+     vertical-align: top;
+      padding-left: 25px; 
+      position: relative; 
+      font: 1rem 'Fira Sans', sans-serif; 
 }
-
-.globalstyle-container .content form .input-checkbox label{
-    font: 1rem 'Fira Sans', sans-serif;
-    align-items: flex-end;
+.checkbox input 
+{ position: absolute; 
+    left: 0; top: 0; 
+    height: 20px;
+    margin-top: 0px !important;
 }
