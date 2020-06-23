@@ -90,11 +90,11 @@ export default function Cadastrar(){
           onChange={e => setSenha(e.target.value)}
           />
           <div className="input-checkbox">
-          <input type="checkbox" value={aceitarReceberEmail} 
-          id="aceitarReceberEmail" style={{width:20}}
-          onChange={e => setAceitarReceberEmail(e.target.value)}
-          />
-          <label for="aceitarReceberEmail"> Aceitar Receber E-mail</label>
+          <label className="checkbox">
+              <input name="checkbox" onChange={e => setAceitarReceberEmail(e.target.value)}
+               id="checkbox" value={aceitarReceberEmail} type="checkbox" style={{width:20}}/>
+            Aceita Receber Email
+          </label>
           </div>
           <button className="button" type="submit">Cadastar</button>
         </form>
