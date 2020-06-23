@@ -96,7 +96,7 @@ export default function Cadastrar(){
             Aceita Receber Email
           </label>
           </div>
-          <button className="button" type="submit">Cadastar</button>
+          <button className="button" type="submit">Cadastar☺</button>
         </form>
       </div>
     </div>
