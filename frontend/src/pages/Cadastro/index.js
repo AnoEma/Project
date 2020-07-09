@@ -19,7 +19,7 @@ export default function Cadastrar(){
   const history = useHistory();
 
   async function handCadastrar(e){
-    e.preventDefaul();
+    e.preventDefault();
 
     const data={
       nome,sobreNome,
@@ -29,10 +29,8 @@ export default function Cadastrar(){
     };
 
     try{
-      const response = await api.post('cadastro', data);
-
-      alert(`Seu ID de acesso: ${response.data.id}`);
-      history.push('/');
+       await api.post('cadastro-cliente', data);
+      history.push('/validar-cadastro',data.email);
      } catch(err){
          alert('Erro no cadastro, tente novamente.');
      }
@@ -43,7 +41,7 @@ export default function Cadastrar(){
     <div className="globalstyle-container">
       {/* <img src={bugerImg} alt="Buger"/> */}
       <div className="content">
-        <section>
+        <section className="form">
           <h1>Cadastro</h1>
           <p>Faça seu cadastro</p>
           <Link className="back-link" to="/">
@@ -96,7 +94,7 @@ export default function Cadastrar(){
             Aceita Receber Email
           </label>
           </div>
-          <button className="button" type="submit">Cadastar☺</button>
+          <button className="button" type="submit">Cadastar</button>
         </form>
       </div>
     </div>

@@ -7,6 +7,7 @@ import EsqueceSenha from './pages/ResetarSenha';
 import ValidarSenhaRecuperado from './pages/ResetarValidacao';
 import NovoSenhaRecuperado from './pages/NovoSenha';
 import Profile from './pages/Profile';
+import ValidacaoCadastro from './pages/ResetarValidacao/validacaoCadastro';
 
 
 
@@ -20,6 +21,7 @@ export default function Routes(){
       <Route path="/validacao" component={ValidarSenhaRecuperado}/>
       <Route path="/nova-senha" component={NovoSenhaRecuperado}/>
       <Route path="/inicial" component={Profile}/>
+      <Route path="/validar-cadastro" component={ValidacaoCadastro}/>
      </Switch>
    </BrowserRouter>
  );

@@ -1,21 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import '../Cadastro/styles.css';
-import { useState } from 'react';
 import api from '../../services/api';
+
 
 
 export default function EsqueceSenha(){
     const [email,setEmail] = useState('');
     const history = useHistory();
 
-    async function handLogin(e){
-      e.preventDefaul();
+    async function handEsqueceSenha(e){
+      e.preventDefault();
 
-      const data={email};
       try{
-          await api.post('banco', data);
+          await api.post('esquecer-senha', {email});
           history.push('/validacao');
       }catch(err){
         alert('Vai se ferra vacilando');
@@ -33,7 +32,7 @@ export default function EsqueceSenha(){
               Volta na Pagina anterior
           </Link>
         </section>
-        <form onSubmit={handLogin}>
+        <form onSubmit={handEsqueceSenha}>
         <input 
           placeholder="E-mail"
           value={email}

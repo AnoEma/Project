@@ -1,26 +1,22 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {FiLogIn,FiPlus} from 'react-icons/fi';
+import {Link, useHistory} from 'react-router-dom';
+import {FiLogIn} from 'react-icons/fi';
+import {BsLock} from 'react-icons/bs';
 import api from '../../services/api';
-
-
-
-
 import './styles.css';
 import bugerImg from '../../assets/shop.svg';
 
 export default function Login(){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    // const history = useHistory();
+    const history = useHistory();
 
     async function handLogin(e){
       e.preventDefault();
 
       try{
-          await api.post('login-usuario', {email, senha});
-        
-        localStorage.setItem('email', email, 'senha', senha);
+          await api.post('login-cliente', {email, senha});
+          history.push('/inicial');  
         
       }catch(err){
         alert('Falha no login, tente novamente.');
@@ -46,7 +42,7 @@ export default function Login(){
        <FiLogIn size={18} color="#E02041"/>
         Cadastrar</Link>
        <Link className="back-link" to="/esqueceu-senha">
-        <FiPlus size={18} color="#E02041"/>
+        <BsLock size={18} color="#E02041"/>
          Esquecer Senha</Link>
       </form>
      </section>

@@ -1,8 +1,6 @@
-import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import {FiArrowLeft} from 'react-icons/fi';
+import React,{useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import '../Cadastro/styles.css';
-import { useState } from 'react';
 import api from '../../services/api';
 
 
@@ -13,18 +11,14 @@ export default function NovoSenhaRecuperado(){
     const history = useHistory();
 
     async function handNovoSenha(e){
-      e.preventDefaul();
-
-      const data={
-        email,
-        senha
-      };
-
+      e.preventDefault();
       try{
-         await api.post('banco', data);
+        alert('A senha foi alterado com sucesso');
+         await api.post('novo-senha', {email, senha});
+         alert('A senha foi alterado com sucesso');
          history.push('/');
       } catch(err){
-        alert('Erro Arnoboys');
+        alert('Erro não foi posivel recuperar a senha');
       }
     }
 
@@ -34,10 +28,6 @@ export default function NovoSenhaRecuperado(){
         <section>
           <h1>Recuperar a Senha</h1>
           <p>Informa Email e a nova Senha</p>
-          <Link className="back-link" to="/validacao">
-            <FiArrowLeft size={16} color="#E02041"/>
-              Volta na Pagina anterior
-          </Link>
         </section>
         <form onSubmit={handNovoSenha}>
         <input 
@@ -46,7 +36,7 @@ export default function NovoSenhaRecuperado(){
           onChange={e => setEmail(e.target.value)}
           />
           <input 
-          placeholder="Nova Senha"
+          placeholder="Nova Senha"type="password"
           value={senha}
           onChange={e => setSenha(e.target.value)}
           />

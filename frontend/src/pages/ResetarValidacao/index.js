@@ -1,8 +1,6 @@
-import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import {FiArrowLeft} from 'react-icons/fi';
+import React,{useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import '../Cadastro/styles.css';
-import { useState } from 'react';
 import api from '../../services/api';
 
 export default function ValidarSenhaRecuperado(){
@@ -10,14 +8,14 @@ export default function ValidarSenhaRecuperado(){
     const history = useHistory();
 
     async function handValidarSenhaRecuperado(e){
-      e.preventDefaul();
+      e.preventDefault();
 
       const data = {tokenSenha};
       try {
-        await api.post('banco', data);
-        history.push('/');
+        await api.post('validacao', data);
+        history.push('/nova-senha');
       } catch(err){
-        alert('O Teken Incorreto');
+        alert('A Token Incorreto');
       }
     }
 
@@ -27,10 +25,6 @@ export default function ValidarSenhaRecuperado(){
         <section>
           <h1>Recuperar a Senha de Login</h1>
           <p>Enviaremos o codido da seguração, verificar no E-mail</p>
-          <Link className="back-link" to="/esqueceu-senha">
-            <FiArrowLeft size={16} color="#E02041"/>
-              Volta na Pagina anterior
-          </Link>
         </section>
         <form onSubmit={handValidarSenhaRecuperado}>
         <input 

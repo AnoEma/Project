@@ -41,9 +41,9 @@ routes.post('/pedido', pedidoController.create);
 
 routes.post('/faca-pedido', facaPedidoController.create);
 
-routes.post('/esqueceu-senha', esquecerSenhaController.create);
+routes.post('/novo-senha', esquecerSenhaController.create);
 
-routes.post('/esquecer', validarSenhaController.create);
+routes.post('/esquecer-senha', validarSenhaController.create);
 routes.post('/validacao', validarSenhaController.recreate);
 routes.get('/esquece', validarSenhaController.index);
 
