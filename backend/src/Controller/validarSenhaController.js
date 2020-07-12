@@ -3,12 +3,10 @@ const connection = require('../database/connection');
 const nodemailer = require('nodemailer');
 
 const enviarMail = nodemailer.createTransport({
-  // host: "smtp.mailtrap.io",
   service: "gmail.com",
-  // port: 25,
   auth: {
     user: "maisonarnoboys@gmail.com",
-    pass: "*********"
+    pass: "21arnoboys@"
   }
 });
 
@@ -28,7 +26,7 @@ module.exports = {
 
 
     if (!verificarEmail && !valido) {
-      return Response.status(401).json({ error: 'Email' });
+      return Response.status(401).json({ error: 'Email não existe' });
     }
     else {
       if (verificarEmail.ativo == true) {
@@ -54,8 +52,15 @@ module.exports = {
     }
 
     if(validacaoDeSenhaToken != null){
-      await connection('recupera').where('email_recuperador', email).update('validacaoDeSenha', validacaoDeSenhaToken);
-      return Response.status(200).json("Show Ano de certo novamente");
+      const dataRegistro = new Date();
+      await connection('recupera').where('email_recuperador', email)
+      .update('validacaoDeSenha', validacaoDeSenhaToken);
+      await connection('recupera').where('email_recuperador', email)
+      .update('data', dataRegistro.toString());
+
+      console.log(validacaoDeSenhaToken);
+
+      return Response.status(200).json("Show Ano deu certo novamente");
     }
   },
 

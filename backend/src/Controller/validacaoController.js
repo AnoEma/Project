@@ -7,8 +7,7 @@ module.exports ={
 
           const validar = await connection('cadastro')
           .where('validarCadastro', validarCadastro)
-          .select('nome')
-          .first();
+          .select('nome');
 
           if(!validar){
             return Response.status(401).json({ error: 'NO found, Token invalido'});

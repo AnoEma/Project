@@ -1,30 +1,44 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
-import './styles.css';
-import { useState } from 'react';
+import '../Cadastro/styles.css';
+import api from '../../services/api';
+
+
 
 export default function EsqueceSenha(){
     const [email,setEmail] = useState('');
+    const history = useHistory();
+
+    async function handEsqueceSenha(e){
+      e.preventDefault();
+
+      try{
+          await api.post('esquecer-senha', {email});
+          history.push('/validacao');
+      }catch(err){
+        alert('Vai se ferra vacilando');
+      }
+    }
 
   return(
-    <div className="cadastro-container">
+    <div className="globalstyle-container">
       <div className="content">
         <section>
-          <h1>Cadastro</h1>
-          <p>Faça seu cadastro</p>
+          <h1>Recuperar a Senha de Login</h1>
+          <p>Digite seu E-mail de Login</p>
           <Link className="back-link" to="/">
             <FiArrowLeft size={16} color="#E02041"/>
-              Volta na Pagina inicial
+              Volta na Pagina anterior
           </Link>
         </section>
-        <form>
+        <form onSubmit={handEsqueceSenha}>
         <input 
           placeholder="E-mail"
-          // value={email}
-          // onChange={e => setEmail(e.target.value)}
+          value={email}
+          onChange={e => setEmail(e.target.value)}
           />
-           <button className="button" type="submit">Cadastar</button>
+           <button className="button" type="submit">Enviar</button>
         </form>
       </div>
     </div>

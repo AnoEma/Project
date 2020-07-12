@@ -1,8 +1,10 @@
 import React,{useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
+import api from '../../services/api';
 
 import './styles.css';
+// import bugerImg from '../../assets/shop.svg';
 
 
 export default function Cadastrar(){
@@ -17,7 +19,7 @@ export default function Cadastrar(){
   const history = useHistory();
 
   async function handCadastrar(e){
-    e.preventDefaul();
+    e.preventDefault();
 
     const data={
       nome,sobreNome,
@@ -27,10 +29,8 @@ export default function Cadastrar(){
     };
 
     try{
-      const response = await applicationCache.post('cadastro', data);
-
-      alert(`Seu ID de acesso: ${response.data.id}`);
-      history.push('/');
+       await api.post('cadastro-cliente', data);
+      history.push('/validar-cadastro',data.email);
      } catch(err){
          alert('Erro no cadastro, tente novamente.');
      }
@@ -38,9 +38,10 @@ export default function Cadastrar(){
 
 
   return(
-    <div className="cadastro-container">
+    <div className="globalstyle-container">
+      {/* <img src={bugerImg} alt="Buger"/> */}
       <div className="content">
-        <section>
+        <section className="form">
           <h1>Cadastro</h1>
           <p>Faça seu cadastro</p>
           <Link className="back-link" to="/">
@@ -48,7 +49,7 @@ export default function Cadastrar(){
               Já tem cadastro
           </Link>
         </section>
-        <form>
+        <form onSubmit={handCadastrar}>
         <input 
           placeholder="Nome"
           value={nome}
@@ -87,11 +88,11 @@ export default function Cadastrar(){
           onChange={e => setSenha(e.target.value)}
           />
           <div className="input-checkbox">
-          <input type="checkbox" value={aceitarReceberEmail} 
-          id="aceitarReceberEmail" style={{width:80}}
-          onChange={e => setAceitarReceberEmail(e.target.value)}
-          />
-          <label for="aceitarReceberEmail"> Aceitar Receber E-mail</label>
+          <label className="checkbox">
+              <input name="checkbox" onChange={e => setAceitarReceberEmail(e.target.value)}
+               id="checkbox" value={aceitarReceberEmail} type="checkbox" style={{width:20}}/>
+            Aceita Receber Email
+          </label>
           </div>
           <button className="button" type="submit">Cadastar</button>
         </form>

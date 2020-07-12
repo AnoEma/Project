@@ -11,7 +11,7 @@ module.exports ={
      
      const emailExiste = await connection('cadastro')
      .where('email', email)
-     .select('nome');
+     .select('nome').first();
 
      if(!emailExiste){
        return Response.status(401).json({ error: 'No Found: Falha para alterar a senha '}); 

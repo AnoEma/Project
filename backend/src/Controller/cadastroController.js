@@ -10,7 +10,7 @@ const enviarMail = nodemailer.createTransport({
     // port: 25,
     auth: {
       user: "maisonarnoboys@gmail.com",
-      pass: "********"
+      pass: "21arnoboys@"
     }
   });
 
@@ -47,6 +47,8 @@ module.exports = {
                 validarCadastro,
                 ativo
             });
+            
+            console.log(validarCadastro);
 
             const email_recuperador = email;
                if(email_recuperador != null){
