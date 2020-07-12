@@ -10,15 +10,15 @@ const loginUsuarioController = require('./Controller/loginUsuarioController');
 
 const liberarAdminController = require('./Controller/liberarAdminController');
 
-const pedidoController = require('./Controller/pedidoController');
-
-const facaPedidoController = require('./Controller/facaPedidoController');
-
 const esquecerSenhaController = require('./Controller/esquecerSenhaController');
 
 const alterarSenhaController = require('./Controller/alterarSenhaController');
 
 const validarSenhaController = require('./Controller/validarSenhaController');
+
+const cursoInicioController = require('./Controller/Negocio/cursoInicio');
+
+const subcategoriaController = require('./Controller/Negocio/subcategoria');
 
 const routes = express.Router();
 
@@ -36,15 +36,15 @@ routes.post('/cadastro-cliente', cadastroController.create);
 routes.post('/acesso-admin', liberarAdminController.create);
 routes.post('/alterar-senha', alterarSenhaController.create);
 
-routes.get('/ver-pedido', pedidoController.index);
-routes.post('/pedido', pedidoController.create);
-
-routes.post('/faca-pedido', facaPedidoController.create);
-
 routes.post('/novo-senha', esquecerSenhaController.create);
 
 routes.post('/esquecer-senha', validarSenhaController.create);
 routes.post('/validacao', validarSenhaController.recreate);
 routes.get('/esquece', validarSenhaController.index);
+
+routes.get('/inicio', cursoInicioController.index);
+routes.post('/cadastro-curso', cursoInicioController.create);
+
+routes.get('/curso', subcategoriaController.index);
 
 module.exports = routes;
