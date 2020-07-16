@@ -11,13 +11,13 @@ module.exports ={
    async create(Resquest, Response){
       const {TipoCurso} = Resquest.body;
 
-      const isCurso = await connection('CursoInicio').where('TipoCurso', TipoCurso).first();
-
-      if(isCurso){
+      const Curso = await connection('CursoInicio').where('TipoCurso', TipoCurso).select('Id').first();
+      
+      if(Curso){
           return Response.status(500).json({error: 'O curso já existe'});
       }else{
           await connection('CursoInicio').insert({TipoCurso});
-          return Response.status(201).json('ok')
+          return Response.status(201).json({message: 'ok'});
       }
    }
 };
