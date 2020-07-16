@@ -20,6 +20,8 @@ const cursoInicioController = require('./Controller/Negocio/cursoInicio');
 
 const subcategoriaController = require('./Controller/Negocio/subcategoria');
 
+const cursoController = require('./Controller/Negocio/curso');
+
 const routes = express.Router();
 
 routes.get('/usuario', usuarioCadastroController.index);
@@ -46,5 +48,9 @@ routes.get('/inicio', cursoInicioController.index);
 routes.post('/cadastro-curso', cursoInicioController.create);
 
 routes.get('/curso', subcategoriaController.index);
+routes.post('/adicao-curso', subcategoriaController.create);
+
+routes.get('/iniciando-curso', cursoController.index);
+routes.post('/create-curso', cursoController.create);
 
 module.exports = routes;
