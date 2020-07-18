@@ -1,22 +1,39 @@
 const connection = require('../../database/connection');
-const { create } = require('../validarSenhaController');
 
 module.exports={
    async index (Resquest, Response){
-      const licao = await connection('Curso').select('*');
+      const licao = await connection('curso').select('*');
       return Response.json(licao);
    },
 
    async create(Resquest, Response){
-     const {SubCategoriaId,Material,MaterialTraduizido} = Resquest.body;
+     const {subCategoriaId,material,materialTraduizido} = Resquest.body;
 
-     const ids = await connection('SubCategoria').where('Id', SubCategoriaId).select('CursoInicioId').first();
-
+     const ids = await connection('subCategoria').where('id', subCategoriaId).select('cursoInicioId').first();
+     const validar = await connection('curso').where('material', material).select('id').first();
+     const excluido = false;
+     
      if(ids){
-         await connection('Curso').insert({SubCategoriaId,Material,MaterialTraduizido});
-         return Response.status(201).json({message: 'sucesso'});      
+        if(validar == undefined){
+         await connection('curso').insert({subCategoriaId,material,materialTraduizido,excluido});
+         return Response.status(201).json({message: 'sucesso'});
+        }else{
+         return Response.status(400).json({error: 'Material já existe'});   
+        }      
      }else{
           return Response.status(400).json({error: 'Bad Resquest'});       
      }
+   },
+
+   async delete(Resquest, Response){
+      const {material} = Resquest.body;
+
+      const validar = await connection('curso').where('material', material).select('subCategoriaId').first();
+      if(validar){
+         await connection('curso').where('subCategoriaId', validar.subCategoriaId).update('excluido', true);
+         return Response.status(201).json({message: 'sucesso'});
+      }else{
+         return Response.status(400).json({error: 'Bad Resquest'});
+      }
    }
 }

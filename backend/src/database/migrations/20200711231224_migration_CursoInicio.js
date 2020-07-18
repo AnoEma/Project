@@ -1,11 +1,12 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('CursoInicio', function (table){
-          table.increments('Id').primary();
-          table.string('TipoCurso').notNullable();
+    return knex.schema.createTable('cursoInicio', function (table){
+          table.increments('id').primary();
+          table.string('tipoCurso').notNullable();
+          table.boolean('excluido').notNullable();
     });
 };
 
 exports.down = function(knex) {
-   return knex.schema.dropTable('CursoInicio');
+   return knex.schema.dropTable('cursoInicio');
 };
