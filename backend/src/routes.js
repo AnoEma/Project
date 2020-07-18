@@ -46,11 +46,14 @@ routes.get('/esquece', validarSenhaController.index);
 
 routes.get('/inicio', cursoInicioController.index);
 routes.post('/cadastro-curso', cursoInicioController.create);
+routes.put('/delete', cursoInicioController.delete);
 
 routes.get('/curso', subcategoriaController.index);
 routes.post('/adicao-curso', subcategoriaController.create);
+routes.put('/deleta-curso', subcategoriaController.delete);
 
 routes.get('/iniciando-curso', cursoController.index);
 routes.post('/create-curso', cursoController.create);
+routes.put('/deleta-material',cursoController.delete);
 
 module.exports = routes;

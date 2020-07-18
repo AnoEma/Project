@@ -1,13 +1,14 @@
 exports.up = function(knex) {
-   return knex.schema.createTable('SubCategoria', function (table){
-          table.increments('Id').primary();
-          table.int('CursoInicioId').notNullable();
-          table.string('Descricao').notNullable();
+   return knex.schema.createTable('subCategoria', function (table){
+          table.increments('id').primary();
+          table.int('cursoInicioId').notNullable();
+          table.string('descricao').notNullable();
+          table.boolean('excluido').notNullable();
 
-          table.foreign('CursoInicioId').references('CursoInicio.Id')
+          table.foreign('cursoInicioId').references('cursoInicio.id')
    });
 };
        
 exports.down = function(knex) {
-   return knex.schema.dropTable('SubCategoria');
+   return knex.schema.dropTable('subCategoria');
 };
