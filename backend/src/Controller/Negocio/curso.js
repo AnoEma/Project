@@ -2,7 +2,8 @@ const connection = require('../../database/connection');
 
 module.exports={
    async index (Resquest, Response){
-      const licao = await connection('curso').select('*');
+      const licao = await connection('curso')
+      .select('*');
       return Response.json(licao);
    },
 
@@ -18,7 +19,7 @@ module.exports={
          await connection('curso').insert({subCategoriaId,material,materialTraduizido,excluido});
          return Response.status(201).json({message: 'sucesso'});
         }else{
-         return Response.status(400).json({error: 'Material já existe'});   
+         return Response.status(404).json({error: 'Material já existe'});   
         }      
      }else{
           return Response.status(400).json({error: 'Bad Resquest'});       

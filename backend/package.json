@@ -16,7 +16,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.13",
     "nodemailer": "^6.4.6",
-    "sqlite3": "^4.1.1"
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
