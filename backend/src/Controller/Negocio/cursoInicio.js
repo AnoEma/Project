@@ -4,7 +4,9 @@ const connection = require('../../database/connection');
 
 module.exports ={
    async index(Resquest, Response){
-      const busca = await connection('cursoInicio').select('*');
+      const busca = await connection('cursoInicio')
+      //.where('excluido', 1)
+      .select('*');
 
       return Response.json(busca);
    },
