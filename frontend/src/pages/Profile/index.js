@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {FiPower} from 'react-icons/fi';
 
 import './styles.css';
@@ -22,6 +22,10 @@ function handLogout(){
     history.push('/');
 }
 
+function handCurso(){
+    history.push('/');
+}
+
 return(
 <div className="profile-container">
         <header>
@@ -34,11 +38,9 @@ return(
         <h1>Curso da Lingua Francês</h1>
         <ul>
             {cursos.map(curso =>(
-                <li key={curso.id}>
+                <li key={curso.id} onClick={() => handCurso(curso.id)} >
                     <strong>Curso Sobre:</strong>
-                    <Link className="back-link" to="/">
-                    {curso.tipoCurso}
-                    </Link>
+                    <p>{curso.tipoCurso}</p>
                 </li>
             ))}
         </ul>
