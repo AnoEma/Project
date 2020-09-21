@@ -53,6 +53,7 @@ routes.post('/adicao-curso', subcategoriaController.create);
 routes.put('/deleta-curso', subcategoriaController.delete);
 
 routes.get('/iniciando-curso', cursoController.index);
+routes.get('/iniciando/:subCategoriaId', cursoController.licaoGrupo);
 routes.post('/create-curso', cursoController.create);
 routes.put('/deleta-material',cursoController.delete);
 

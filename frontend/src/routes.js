@@ -25,7 +25,7 @@ export default function Routes(){
       <Route path="/inicial" component={Profile}/>
       <Route path="/subcategoria-curso" component={subcategoria}/>
       <Route path="/validar-cadastro" component={ValidacaoCadastro}/>
-      <Route path="/licao" component={Curso}/>
+      <Route path="/licao/:subcategoriaId" component={Curso}/>
      </Switch>
    </BrowserRouter>
  );

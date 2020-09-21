@@ -4,6 +4,7 @@ import {FiPower} from 'react-icons/fi';
 
 import api from '../../services/api';
 
+
 export default function SubCategoria(){
   const [categoria, setCategoria] = useState([]);
 
@@ -19,9 +20,10 @@ function handLogout(){
    history.push('/');
 }
 
-function handLicao(){
-  history.push('/');
+function handLicao(subCategoriaId){
+history.push(`/licao/${subCategoriaId}`);
 }
+
 return (
   <div className="profile-container">
     <header>
