@@ -23,7 +23,7 @@ function handLogout(){
 }
 
 function handCurso(){
-    history.push('/');
+    history.push('/subcategoria-curso');
 }
 
 return(

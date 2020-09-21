@@ -9,10 +9,17 @@ export default function Curso(){
    const [licao, setLicao] = useState([]);
 
    const history = useHistory();
-   useEffect(() =>{
-      api.get('iniciando-curso').then(Response =>{
-          setLicao(Response.data);
-      })
+
+   useEffect((params) => (subCategoriaId) => {
+      try {        
+           api.get(`iniciando/${subCategoriaId}`)
+              .then(Response =>{
+            setLicao(Response.data);
+         });
+      } 
+      catch (error) {
+         alert("Não deu certoooo!")
+      }
    });
 
    function handLogout(){

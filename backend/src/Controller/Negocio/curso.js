@@ -7,6 +7,16 @@ module.exports={
       return Response.json(licao);
    },
 
+   async licaoGrupo(Resquest, Response){
+      const {subCategoriaId} = Resquest.params;
+      console.log(subCategoriaId);
+      const licao = await connection('curso')
+      .where('id', subCategoriaId)
+      .select('*').first();
+      console.log(licao);
+      return Response.json(licao);
+   },
+
    async create(Resquest, Response){
      const {subCategoriaId,material,materialTraduizido} = Resquest.body;
 

@@ -30,6 +30,17 @@
     transition: border-color 0.2s;
 }
 
+.profile-container header Link{
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: auto;
+    margin-top: 0;
+    transition: border-color 0.2s;
+}
+
 .profile-container header button{
     border-color: #999;
 }
