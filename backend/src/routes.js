@@ -21,6 +21,7 @@ const cursoInicioController = require('./Controller/Negocio/cursoInicio');
 const subcategoriaController = require('./Controller/Negocio/subcategoria');
 
 const cursoController = require('./Controller/Negocio/curso');
+const tempoVerboController = require('./Controller/Negocio/negocio');
 
 const routes = express.Router();
 
@@ -56,5 +57,7 @@ routes.get('/iniciando-curso', cursoController.index);
 routes.get('/iniciando/:subCategoriaId', cursoController.licaoGrupo);
 routes.post('/create-curso', cursoController.create);
 routes.put('/deleta-material',cursoController.delete);
+
+routes.get('/tempo-do-verbo', tempoVerboController.index);
 
 module.exports = routes;
