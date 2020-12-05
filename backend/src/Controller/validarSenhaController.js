@@ -58,7 +58,6 @@ module.exports = {
       await connection('recupera').where('email_recuperador', email)
       .update('data', dataRegistro.toString());
 
-      console.log(validacaoDeSenhaToken);
 
       return Response.status(200).json("Show Ano deu certo novamente");
     }

@@ -15,7 +15,10 @@ export default function EsqueceSenha(){
 
       try{
           await api.post('esquecer-senha', {email});
-          history.push('/validacao');
+          history.push({
+            pathname:'/validacao',
+            email: email
+          });
       }catch(err){
         alert('Vai se ferra vacilando');
       }

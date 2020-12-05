@@ -3,9 +3,10 @@ import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
 
 
-export default function ValidarCadastro(){
+export default function ValidarCadastro(props){
           const [validarCadastro, setValidarCadastro] = useState('');
           const history = useHistory();
+          const email = props.location.email;
 
           async function handValidarCadastro(e){
               e.preventDefault()
@@ -24,7 +25,7 @@ export default function ValidarCadastro(){
           <div className="content">
              <section>
                  <h1>Finalizar seu Cadastro</h1><br/>
-                 <p>Enviaremos a Token da validação de Cadastro no E-mail</p>      
+   <p>Enviemos a Token da validação do cadastro no E-mail: {email}</p>      
              </section>
              <form onSubmit={handValidarCadastro}>
                 <input 

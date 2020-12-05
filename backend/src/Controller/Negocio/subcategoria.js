@@ -7,6 +7,14 @@ module.exports={
       return Response.json(busca);
    },
 
+   async listaSubcategoria(Resquest, Response){
+      const {cursoId} = Resquest.params;
+      const buscaSubcategoria = await connection('subCategoria')
+      .where('cursoInicioId', cursoId).select('*');
+      
+      return Response.json(buscaSubcategoria);
+   },
+
    async create(Resquest, Response){
       const {cursoInicioId, descricao} = Resquest.body;
 

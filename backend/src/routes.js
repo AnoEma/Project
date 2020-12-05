@@ -49,7 +49,8 @@ routes.get('/inicio', cursoInicioController.index);
 routes.post('/cadastro-curso', cursoInicioController.create);
 routes.put('/delete', cursoInicioController.delete);
 
-routes.get('/curso', subcategoriaController.index);
+routes.get('/cursos', subcategoriaController.index);
+routes.get('/curso/:cursoId', subcategoriaController.listaSubcategoria);
 routes.post('/adicao-curso', subcategoriaController.create);
 routes.put('/deleta-curso', subcategoriaController.delete);
 

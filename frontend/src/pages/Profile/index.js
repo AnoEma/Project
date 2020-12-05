@@ -22,8 +22,11 @@ function handLogout(){
     history.push('/');
 }
 
-function handCurso(){
-    history.push('/subcategoria-curso');
+function handCurso(cursoId){
+    history.push({
+        pathname: `/subcategoria-curso`,
+        cursoId: cursoId
+    });
 }
 
 return(
@@ -38,7 +41,7 @@ return(
         <h1>Curso da Lingua Francês</h1>
         <ul>
             {cursos.map(curso =>(
-                <li key={curso.id} onClick={() => handCurso(curso.id)} >
+                <li key={curso.id} onClick={() => handCurso(curso.id, curso.tipoCurso)} >
                     <strong>Curso Sobre:</strong>
                     <p>{curso.tipoCurso}</p>
                 </li>

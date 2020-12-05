@@ -30,7 +30,10 @@ export default function Cadastrar(){
 
     try{
        await api.post('cadastro-cliente', data);
-      history.push('/validar-cadastro',data.email);
+      history.push({
+        pathname: '/validar-cadastro',
+        email: data.email
+      });
      } catch(err){
          alert('Erro no cadastro, tente novamente.');
      }
@@ -89,8 +92,8 @@ export default function Cadastrar(){
           />
           <div className="input-checkbox">
           <label className="checkbox">
-              <input name="checkbox" onChange={e => setAceitarReceberEmail(e.target.value)}
-               id="checkbox" value={aceitarReceberEmail} type="checkbox" style={{width:20}}/>
+              <input name="checkbox" onClick={e => setAceitarReceberEmail(e.target.value = true)}
+               id="checkbox" type="checkbox" style={{width:20}}/>
             Aceita Receber Email
           </label>
           </div>

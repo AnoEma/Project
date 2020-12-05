@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
@@ -27,7 +27,7 @@ export default function Routes(){
       <Route path="/subcategoria-curso" component={subcategoria}/>
       <Route path="/validar-cadastro" component={ValidacaoCadastro}/>
       <Route path="/licao" component={Curso}/>
-      <Route path="/tempo" component={Tempo}/>
+      <Route path="/tempo/:SubCategoriaId" component={Tempo}/>
      </Switch>
    </BrowserRouter>
  );
