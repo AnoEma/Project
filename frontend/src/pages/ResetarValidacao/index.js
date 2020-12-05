@@ -3,9 +3,10 @@ import {useHistory} from 'react-router-dom';
 import '../Cadastro/styles.css';
 import api from '../../services/api';
 
-export default function ValidarSenhaRecuperado(){
+export default function ValidarSenhaRecuperado(props){
     const [tokenSenha,setTokenSenha] = useState('');
     const history = useHistory();
+    const email = props.location.email;
 
     async function handValidarSenhaRecuperado(e){
       e.preventDefault();
@@ -13,7 +14,10 @@ export default function ValidarSenhaRecuperado(){
       const data = {tokenSenha};
       try {
         await api.post('validacao', data);
-        history.push('/nova-senha');
+        history.push({
+          pathname: '/nova-senha',
+          email: email
+        });
       } catch(err){
         alert('A Token Incorreto');
       }
@@ -24,7 +28,7 @@ export default function ValidarSenhaRecuperado(){
       <div className="content">
         <section>
           <h1>Recuperar a Senha de Login</h1>
-          <p>Enviaremos o codido da seguração, verificar no E-mail</p>
+  <p>Enviaremos o codido da seguração, verificar no E-mail: {email}</p>
         </section>
         <form onSubmit={handValidarSenhaRecuperado}>
         <input 

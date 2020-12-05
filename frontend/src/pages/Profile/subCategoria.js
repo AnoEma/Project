@@ -5,12 +5,13 @@ import {FiArrowLeft} from 'react-icons/fi';
 import api from '../../services/api';
 
 
-export default function SubCategoria(){
+export default function SubCategoria(props){
   const [categoria, setCategoria] = useState([]);
+  const cursoId = props.location.cursoId;
 
 const history = useHistory();
 useEffect(() =>{
-    api.get('curso').then(Response =>{
+    api.get(`curso/${cursoId}`).then(Response =>{
         setCategoria(Response.data);
     })
 },[]);
@@ -21,7 +22,7 @@ function handVoltar(){
 
 function handLicao(SubCategoriaId){
 history.push({
-  pathname: '/tempo',
+  pathname: `/tempo/${SubCategoriaId}`,
   SubCategoriaId: SubCategoriaId
 })
 }

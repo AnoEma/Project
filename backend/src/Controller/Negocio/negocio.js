@@ -9,10 +9,9 @@ module.exports={
 
     async listeTempoDoVerbo(Resquest, Response){
        const {verboId} = Resquest.params;
-       console.log(verboId);
        const buscarTempo = await connection('tempoVerbo')
        .where('subCategoriaId', verboId).select('*');
-       console.log(buscarTempo);
+
        return Response.json(buscarTempo);
     },
 

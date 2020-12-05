@@ -5,9 +5,7 @@ const nodemailer = require('nodemailer');
 
 
 const enviarMail = nodemailer.createTransport({
-    // host: "smtp.mailtrap.io",
     service: "gmail.com",
-    // port: 25,
     auth: {
       user: "maisonarnoboys@gmail.com",
       pass: "21arnoboys@"
@@ -48,8 +46,6 @@ module.exports = {
                 ativo
             });
             
-            console.log(validarCadastro);
-
             const email_recuperador = email;
                if(email_recuperador != null){
                 await connection('recupera').insert({email_recuperador});
