@@ -59,6 +59,7 @@ routes.post('/create-curso', cursoController.create);
 routes.put('/deleta-material',cursoController.delete);
 
 routes.get('/tempo-do-verbo', tempoVerboController.index);
+routes.get('/tempo-verbo/:verboId', tempoVerboController.listeTempoDoVerbo);
 routes.post('/adicao-tempo', tempoVerboController.createVerbo);
 
 module.exports = routes;

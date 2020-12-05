@@ -15,7 +15,7 @@ useEffect(() =>{
     api.get('inicio').then(Response =>{
         setCurso(Response.data);
     })
-});
+},[]);
 
 function handLogout(){
     localStorage.clear();

@@ -9,11 +9,9 @@ module.exports={
 
    async licaoGrupo(Resquest, Response){
       const {subCategoriaId} = Resquest.params;
-      console.log(subCategoriaId);
       const licao = await connection('curso')
       .where('id', subCategoriaId)
-      .select('*').first();
-      console.log(licao);
+      .select('*');
       return Response.json(licao);
    },
 

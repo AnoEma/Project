@@ -7,6 +7,15 @@ module.exports={
        return Response.json(tempo);
     },
 
+    async listeTempoDoVerbo(Resquest, Response){
+       const {verboId} = Resquest.params;
+       console.log(verboId);
+       const buscarTempo = await connection('tempoVerbo')
+       .where('subCategoriaId', verboId).select('*');
+       console.log(buscarTempo);
+       return Response.json(buscarTempo);
+    },
+
     async createVerbo(Resquest, Response){
         const {subCategoriaId, tempo, tempoTraduizido} = Resquest.body;
         
