@@ -20,7 +20,7 @@ module.exports ={
       if(curso != undefined){
           return Response.status(500).json({error: 'O curso já existe'});
       }else{
-          await connection('cursoInicio').insert({tipoCurso, excluido});
+          await connection('cursoInicio').insert({tipoCurso,descricao, excluido});
           return Response.status(201).json({message: 'sucesso'});
       }
    },

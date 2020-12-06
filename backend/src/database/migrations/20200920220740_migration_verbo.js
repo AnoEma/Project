@@ -6,6 +6,7 @@ exports.up = function(knex) {
           table.string('verboMaterial').notNullable();
           table.string('verboMaterialTraduizido').notNullable();
           table.boolean('excluido').notNullable();
+          table.string('descricao');
 
           table.foreign('tempoId').references('tempoVerbo.id');
   });

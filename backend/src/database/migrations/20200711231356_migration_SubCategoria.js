@@ -4,6 +4,7 @@ exports.up = function(knex) {
           table.int('cursoInicioId').notNullable();
           table.string('descricao').notNullable();
           table.boolean('excluido').notNullable();
+          table.string('descricaoMaterial');
 
           table.foreign('cursoInicioId').references('cursoInicio.id')
    });

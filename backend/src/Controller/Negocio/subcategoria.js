@@ -16,7 +16,7 @@ module.exports={
    },
 
    async create(Resquest, Response){
-      const {cursoInicioId, descricao} = Resquest.body;
+      const {cursoInicioId, descricao, descricaoMaterial} = Resquest.body;
 
       const validar = await connection('subCategoria').where('descricao', descricao).select('id').first();
       
@@ -27,7 +27,7 @@ module.exports={
          return Response.status(500).json({error: 'A descricao já existe'});
       }else{
          if(isCursoInicioId != undefined){
-            await connection('subCategoria').insert({descricao, cursoInicioId, excluido});
+            await connection('subCategoria').insert({descricao, cursoInicioId, excluido, descricaoMaterial});
             return Response.status(201).json({message: 'sucesso'});
          }else{
             return Response.status(500).json({error: 'Bad Resquest'});

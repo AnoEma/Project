@@ -4,6 +4,7 @@ exports.up = function(knex) {
           table.increments('id').primary();
           table.string('tipoCurso').notNullable();
           table.boolean('excluido').notNullable();
+          table.string('descricao');
     });
 };
 

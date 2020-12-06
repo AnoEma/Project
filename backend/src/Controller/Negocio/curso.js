@@ -16,7 +16,7 @@ module.exports={
    },
 
    async create(Resquest, Response){
-     const {subCategoriaId,material,materialTraduizido} = Resquest.body;
+     const {subCategoriaId,material,materialTraduizido, descricao} = Resquest.body;
 
      const ids = await connection('subCategoria').where('id', subCategoriaId).select('cursoInicioId').first();
      const validar = await connection('curso').where('material', material).select('id').first();
@@ -24,7 +24,7 @@ module.exports={
      
      if(ids){
         if(validar == undefined){
-         await connection('curso').insert({subCategoriaId,material,materialTraduizido,excluido});
+         await connection('curso').insert({subCategoriaId,material,materialTraduizido,descricao,excluido});
          return Response.status(201).json({message: 'sucesso'});
         }else{
          return Response.status(404).json({error: 'Material já existe'});   

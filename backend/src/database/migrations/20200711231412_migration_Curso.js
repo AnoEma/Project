@@ -6,6 +6,7 @@ exports.up = function(knex) {
           table.string('material').notNullable();
           table.string('materialTraduizido').notNullable();
           table.boolean('excluido').notNullable();
+          table.string('descricao');
 
           table.foreign('subCategoriaId').references('subCategoria.id')
    });

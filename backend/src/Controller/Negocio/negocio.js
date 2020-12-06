@@ -25,7 +25,7 @@ module.exports={
         if(ids){
             if(validar == undefined){
                 await connection('tempoVerbo')
-                .insert({subCategoriaId,tempo,tempoTraduizido, excluido});
+                .insert({subCategoriaId,tempo,tempoTraduizido,descricao,excluido});
                 return Response.status(201).json({message: 'sucesso'});
             }
             else{
