@@ -11,6 +11,7 @@ import ValidacaoCadastro from './pages/ResetarValidacao/validacaoCadastro';
 import subcategoria from './pages/Profile/subCategoria';
 import Curso from './pages/Profile/curso';
 import Tempo from './pages/Profile/tempo';
+import Poema from './pages/Profile/poema/poema';
 
 
 
@@ -28,6 +29,7 @@ export default function Routes(){
       <Route path="/validar-cadastro" component={ValidacaoCadastro}/>
       <Route path="/licao" component={Curso}/>
       <Route path="/tempo/:SubCategoriaId" component={Tempo}/>
+      <Route path="/poema/:SubCategoriaId" component={Poema}/>
      </Switch>
    </BrowserRouter>
  );

@@ -23,6 +23,8 @@ const subcategoriaController = require('./Controller/Negocio/subcategoria');
 const cursoController = require('./Controller/Negocio/curso');
 const tempoVerboController = require('./Controller/Negocio/negocio');
 
+const poemaController = require('./Controller/Negocio/poema/poema');
+
 const routes = express.Router();
 
 routes.get('/usuario', usuarioCadastroController.index);
@@ -62,5 +64,10 @@ routes.put('/deleta-material',cursoController.delete);
 routes.get('/tempo-do-verbo', tempoVerboController.index);
 routes.get('/tempo-verbo/:verboId', tempoVerboController.listeTempoDoVerbo);
 routes.post('/adicao-tempo', tempoVerboController.createVerbo);
+
+routes.get('/poemas', poemaController.index);
+routes.post('/create-poema', poemaController.create);
+routes.get('/poema/:poemaId', poemaController.getPoema);
+routes.put('/deleta-poema', poemaController.delete);
 
 module.exports = routes;

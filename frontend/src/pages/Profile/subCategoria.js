@@ -8,6 +8,7 @@ import api from '../../services/api';
 export default function SubCategoria(props){
   const [categoria, setCategoria] = useState([]);
   const cursoId = props.location.cursoId;
+  const tipoCurso = props.location.tipoCurso;
 
 const history = useHistory();
 useEffect(() =>{
@@ -21,10 +22,19 @@ function handVoltar(){
 }
 
 function handLicao(SubCategoriaId){
-history.push({
-  pathname: `/tempo/${SubCategoriaId}`,
-  SubCategoriaId: SubCategoriaId
-})
+  if(tipoCurso.includes('verbo')){
+    history.push({
+      pathname: `/tempo/${SubCategoriaId}`,
+      SubCategoriaId: SubCategoriaId
+    })
+  }
+  else if(tipoCurso.includes('poema')){
+    history.push({
+      pathname: `/poema/${SubCategoriaId}`,
+      SubCategoriaId: SubCategoriaId
+    })
+  }
+
 }
 
 return (

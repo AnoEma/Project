@@ -22,10 +22,11 @@ function handLogout(){
     history.push('/');
 }
 
-function handCurso(cursoId){
+function handCurso(cursoId, tipoCurso){
     history.push({
         pathname: `/subcategoria-curso`,
-        cursoId: cursoId
+        cursoId: cursoId,
+        tipoCurso: tipoCurso
     });
 }
 
