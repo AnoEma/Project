@@ -21,17 +21,18 @@ function handVoltar(){
    history.push('/inicial');
 }
 
-function handLicao(SubCategoriaId){
+function handLicao(SubCategoriaId, descricao){
   if(tipoCurso.includes('verbo')){
     history.push({
       pathname: `/tempo/${SubCategoriaId}`,
-      SubCategoriaId: SubCategoriaId
+      SubCategoriaId: SubCategoriaId,
+      descricao:descricao
     })
   }
   else if(tipoCurso.includes('poema')){
     history.push({
       pathname: `/poema/${SubCategoriaId}`,
-      SubCategoriaId: SubCategoriaId
+      SubCategoriaId: SubCategoriaId,
     })
   }
 
@@ -49,7 +50,7 @@ return (
    <h1>Lição sobre :</h1>
    <ul>
      {categoria.map(curso =>(
-       <li key={curso.id} onClick={() => handLicao(curso.id)}>
+       <li key={curso.id} onClick={() => handLicao(curso.id, curso.descricao)}>
           <p>{curso.descricao} em Francês</p>
        </li>
      ))}

@@ -22,15 +22,19 @@ export default function Poemas(props){
 
 
 
-    function handVoltar(){
-      history.push('/subcatergoria-curso');
+    function handVoltar(poemaId){
+      history.push({
+        pathname: `/subcategoria-curso`,
+        cursoId: poemaId[0],
+        tipoCurso:'poema'
+      });
     }
 
     return(
       <div className="profile-container">
         <header>
            <span>Viva a Poema</span>
-            <button  onClick={handVoltar} type="button">
+            <button  onClick={()=>handVoltar(poema.map(a => a.poemaId))} type="button">
                <FiArrowLeft size={18} color="#E02041"/>
             </button>
         </header>

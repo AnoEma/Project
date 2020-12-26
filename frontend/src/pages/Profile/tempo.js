@@ -9,6 +9,7 @@ export default function Tempo(props){
 
   const history = useHistory();
   const verboId = props.location.SubCategoriaId;
+  const descricao = props.location.descricao
 
    useEffect(() =>{
       try {        
@@ -22,19 +23,23 @@ export default function Tempo(props){
           }      
    }, []);
 
-     function handVoltar(){
-          history.push('/subcategoria-curso');     
+     function handVoltar(subCategoriaId){
+          history.push({
+               pathname: `/subcategoria-curso`,
+               cursoId: subCategoriaId[0],
+               tipoCurso:'verbo'
+          });     
       }
 
    return(
           <div className="profile-container">
                <header>
-                    <span>Tempo de verbo</span>
-                    <button  onClick={handVoltar} type="button">
+                    <span>Tempo do verbo</span>
+                    <button  onClick={() => handVoltar(tempo.map(a => a.subCategoriaId))} type="button">
                        <FiArrowLeft size={18} color="#E02041"/>
                     </button>
                </header>
-               <h1>Escolhe o tempo</h1>
+               <h1>Escolhe o tempo do {descricao}</h1>
                <ul>
                     {tempo.map(tempinho =>(
                         <li key={tempinho.id}>
