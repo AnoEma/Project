@@ -16,7 +16,10 @@ export default function Login(){
 
       try{
           await api.post('login-cliente', {email, senha});
-          history.push('/inicial');  
+          history.push({
+            pathname:'/inicial',
+            usuario: email
+          });  
         
       }catch(err){
         alert('Falha no login, tente novamente.');

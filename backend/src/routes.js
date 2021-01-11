@@ -32,11 +32,13 @@ routes.post('/cadastro-usuario', usuarioCadastroController.create);
 
 routes.post('/login-cliente', loginController.create);
 routes.post('/login-usuario', loginUsuarioController.create);
+routes.post('/usuario-logado/:usuario', loginUsuarioController.getUsuario);
 
 routes.post('/validacao-cliente', validacaoController.create);
 
 routes.get('/cliente', cadastroController.index);
 routes.post('/cadastro-cliente', cadastroController.create);
+
 
 routes.post('/acesso-admin', liberarAdminController.create);
 routes.post('/alterar-senha', alterarSenhaController.create);

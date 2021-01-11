@@ -6,10 +6,15 @@ const secret = "xuxa";
 
 module.exports = {
 
+  async getUsuario(Resquest, Response){
+    const {usuario} = Request.body;
+    const retorno = await connection('usuarios').where('email', usuario).select('admin');
+    return Response.json(retorno);
+  },
   async create (resquest, response){    
      const {usuario, senha} = resquest.body;
                   
-      if(usuario.length < 8){
+      if(usuario.length < 5){
           return response.status(401).send({mensagem: 'Falha na autenticação 1'});
         }
         

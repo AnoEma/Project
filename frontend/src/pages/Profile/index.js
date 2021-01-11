@@ -1,20 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
-import {FiPower} from 'react-icons/fi';
+import {FiPower, FiPlus} from 'react-icons/fi';
 
 import './styles.css';
 import api from '../../services/api';
 
 
 
-export default function Profile(){
+export default function Profile(props){
 const [cursos, setCurso] = useState([]);
+const usuario = props.location.email;
 
 const history = useHistory()
 useEffect(() =>{
     api.get('inicio').then(Response =>{
         setCurso(Response.data);
     })
+    handUsuario(usuario);
 },[]);
 
 function handLogout(){
@@ -30,10 +32,25 @@ function handCurso(cursoId, tipoCurso){
     });
 }
 
+function handPlus(){
+    history.push('/');
+}
+
+function handUsuario(usuario){
+    // try {
+    //     api.post('usuario-logado', usuario).then(Response =>{Response.data});
+    // } catch (error) {
+    //     alert('teste');
+    // }
+}
+
 return(
 <div className="profile-container">
         <header>
             <span>Bem vinda</span>
+            <button className="buton" onClick={handPlus} type="button">
+                <FiPlus size={18} color="#E02041"/>
+            </button>
             <button onClick={handLogout} type="button">
               <FiPower size={18} color= "#E02041"/>
             </button>

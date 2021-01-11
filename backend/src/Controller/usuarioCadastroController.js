@@ -27,9 +27,6 @@ module.exports = {
        if(cpf.length < 11 || cpf.length > 11){
           return Response.status(400).json({ mensagem: 'O CPF invalido'}); 
        }
-       else if(cpf == "00000000000" || cpf == " "){
-          return Response.status(400).json({ mensagem: 'O CPF invalido'}); 
-       }
        else{
           if(emailExiste == null && celularExiste == null && cpfExiste == null && usuarioExiste == null){
              await connection('usuarios').insert({

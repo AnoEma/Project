@@ -16,7 +16,6 @@ const enviarMail = nodemailer.createTransport({
 module.exports = {
     async index(Resquest, Response){
         const cadastros = await connection('cadastro').select('*');
-
         return Response.json(cadastros);
     },
 
