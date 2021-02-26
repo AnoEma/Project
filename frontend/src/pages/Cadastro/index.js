@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import api from '../../services/api';
+import MaskedInput from 'react-text-mask';
 
 import './styles.css';
-// import bugerImg from '../../assets/shop.svg';
 
 
 export default function Cadastrar(){
@@ -15,11 +15,13 @@ export default function Cadastrar(){
   const [cidade, setCidade] = useState('');
   const [uf, setUf] = useState('');
   const [senha, setSenha] = useState('');
+  const [confirmaSenha, setConfirmaSenha] = useState('');
   const [aceitarReceberEmail, setAceitarReceberEmail] = useState('');
   const history = useHistory();
 
   async function handCadastrar(e){
     e.preventDefault();
+    
 
     const data={
       nome,sobreNome,
@@ -28,6 +30,9 @@ export default function Cadastrar(){
       senha,aceitarReceberEmail
     };
     const pattern= new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    if(senha != confirmaSenha){
+      return alert('Verificar a Senha!');
+    }
 
     if(!pattern.test(email)){
      return alert('E-mail invalido!');
@@ -47,13 +52,12 @@ export default function Cadastrar(){
 
   return(
     <div className="globalstyle-container">
-      {/* <img src={bugerImg} alt="Buger"/> */}
       <div className="content">
         <section className="form">
           <h1>Cadastro</h1>
           <p>Faça seu cadastro</p>
-          <Link className="back-link" to="/">
-            <FiArrowLeft size={16} color="#E02041"/>
+          <Link className="back-link" to="/" color="f7f5f5">
+            <FiArrowLeft size={18} color="#ffffff"/>
               Já tem cadastro
           </Link>
         </section>
@@ -73,7 +77,8 @@ export default function Cadastrar(){
           value={email}
           onChange={e => setEmail(e.target.value)}
           />
-           <input 
+          <MaskedInput 
+          mask={['(', /[0-9]/, /\d/,')', ' ', /\d/, /\d/, /\d/, /\d/,/\d/, '-', /\d/, /\d/, /\d/, /\d/]}
           placeholder="Celular"
           value={celular}
           onChange={e => setCelular(e.target.value)}
@@ -95,14 +100,19 @@ export default function Cadastrar(){
           value={senha}
           onChange={e => setSenha(e.target.value)}
           />
+          <input 
+          placeholder="Confirma Senha" type="password"
+          value={confirmaSenha}
+          onChange={e => setConfirmaSenha(e.target.value)}
+          />
           <div className="input-checkbox">
           <label className="checkbox">
-              <input name="checkbox" onClick={e => setAceitarReceberEmail(e.target.value = true)}
+              <input className="teste" name="checkbox" onClick={e => setAceitarReceberEmail(e.target.value = true)}
                id="checkbox" type="checkbox" style={{width:20}}/>
             Aceita Receber Email
           </label>
           </div>
-          <button className="button" type="submit">Cadastar</button>
+          <button className="button" type="submit">Cadastrar</button>
         </form>
       </div>
     </div>

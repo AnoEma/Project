@@ -31,7 +31,7 @@ export default function EsqueceSenha(){
           <h1>Recuperar a Senha de Login</h1>
           <p>Digite seu E-mail de Login</p>
           <Link className="back-link" to="/">
-            <FiArrowLeft size={16} color="#E02041"/>
+            <FiArrowLeft size={20} color="#ffffff"/>
               Volta na Pagina anterior
           </Link>
         </section>

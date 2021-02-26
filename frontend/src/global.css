@@ -46,10 +46,10 @@ form textarea{
 .button {
   width: 100%;
   height: 60px;
-  background: #e02041;
+  background: #85cece;
   border:0;
-  border-radius: 8px;
-  color: #FFF;
+  border-radius: 27px;
+  color: rgb(12, 3, 3);
   font-weight: 700;
   margin-top: 16px;
   display: inline-block;
@@ -67,7 +67,7 @@ form textarea{
   display: flex;
   align-items: flex-end;
   margin-top: 20px;
-  color: #41414d;
+  color: #feffff;
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;

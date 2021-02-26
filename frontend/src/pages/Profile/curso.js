@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {FiPower, FiArrowLeft} from 'react-icons/fi';
+import {FiPower, FiArrowLeft, FiPlayCircle} from 'react-icons/fi';
 
 import api from '../../services/api';
 
@@ -48,7 +48,7 @@ export default function Curso(props){
           <ul>
                {licao.map(curso =>(
                    <li key={curso.id}>
-                   <p>{curso.material}</p>
+                   <p>{curso.material} <FiPlayCircle size={14}/></p>
                    <p>{curso.materialTraduizido}</p>
               </li>
                ))}

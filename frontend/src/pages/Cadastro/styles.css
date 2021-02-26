@@ -12,13 +12,14 @@
 .globalstyle-container .content{
     width: 100%;
     padding: 96px;
-    background: #f0f0f5;
+    background: #547792;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 25px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #f4fafaf5;
 }
 
 .globalstyle-container .content section{
@@ -33,17 +34,22 @@
 
 .globalstyle-container .content section p{
     font-size: 18px;
-    color: #737380;
+    color: #f4fafaf5;
     line-height: 32px;
 }
 
 .globalstyle-container .content form{
     width: 100%;
     max-width: 450px;
-}
+    color: #f4fafaf5;
 
+}
+.globalstyle-container .content form link{
+    color: #f4fafaf5;
+}
 .globalstyle-container .content form input{
     margin-top: 8px;
+    border-radius: 27px;
 }
 
 .globalstyle-container .content form .input-group{
@@ -56,16 +62,22 @@
 
 .input-checkbox{
     margin-top: 10px;
+    border-radius: 27px;
+}
+.teste{
+    border-radius: 27px;
 }
 .checkbox 
-{ display: inline-block;
+{ 
+    display: inline-block;
      vertical-align: top;
       padding-left: 25px; 
       position: relative; 
       font: 1rem 'Fira Sans', sans-serif; 
 }
 .checkbox input 
-{ position: absolute; 
+{ 
+    position: absolute; 
     left: 0; top: 0; 
     height: 20px;
     margin-top: 0px !important;

@@ -4,7 +4,7 @@ import {FiLogIn} from 'react-icons/fi';
 import {BsLock} from 'react-icons/bs';
 import api from '../../services/api';
 import './styles.css';
-import bugerImg from '../../assets/shop.svg';
+import paris from '../../assets/clipart-paris.svg';
 
 export default function Login(){
     const [email, setEmail] = useState('');
@@ -28,7 +28,7 @@ export default function Login(){
 
   return (
    <div className="login-container">
-     <img src={bugerImg} alt="Buger"/>
+     <img src={paris} alt="Paris" style={{width:450}}/>
      <section className="form">
       <form onSubmit={handLogin}>
        <h1>Welcome</h1>
@@ -36,16 +36,16 @@ export default function Login(){
        <input placeholder="E-mail Address" value={email} 
         onChange={e => setEmail(e.target.value)}/>
 
-       <input type="password" placeholder="☺☺☺☺" value={senha} 
+       <input type="password" placeholder="☺☺☺☺☺☺☺" value={senha} 
         onChange={e => setSenha(e.target.value)}/>
 
        <button className="button" type="submit">Login</button>
 
        <Link className="back-link" to="/cadastro-cliente">
-       <FiLogIn size={18} color="#E02041"/>
+       <FiLogIn size={20} color="rgb(12, 3, 3)"/>
         Cadastrar</Link>
        <Link className="back-link" to="/esqueceu-senha">
-        <BsLock size={18} color="#E02041"/>
+        <BsLock size={20} color="rgb(12, 3, 3)"/>
          Esquecer Senha</Link>
       </form>
      </section>

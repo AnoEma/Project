@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
-import {FiArrowLeft} from 'react-icons/fi';
+import {FiArrowLeft, FiPlayCircle} from 'react-icons/fi';
 
 import api from '../../../services/api';
 
@@ -42,7 +42,7 @@ export default function Poemas(props){
            <ul>
             {poema.map(arte =>(
               <li key={arte.id}>
-               <p>{arte.poemaMaterial}</p>
+               <p>{arte.poemaMaterial} <FiPlayCircle size={14}/></p>
                <p>{arte.poemaMaterialTraduizido}</p>
               </li>
             ))}
