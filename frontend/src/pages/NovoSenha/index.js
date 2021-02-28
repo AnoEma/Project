@@ -17,7 +17,7 @@ export default function NovoSenhaRecuperado(props){
          alert('A senha foi alterado com sucesso');
          history.push('/');
       } catch(err){
-        alert('Erro não foi possivel recuperar a senha');
+        alert('Erro não foi possivel criar a senha');
       }
     }
 

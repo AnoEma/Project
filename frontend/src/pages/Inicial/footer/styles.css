@@ -1,0 +1,9 @@
+.footerstyle-container{
+    align-items: center;
+    background: #6ee92762;
+    display: flex;
+    justify-content: space-between;
+    padding: 21px 5rem;
+    margin : auto;
+    color: #0a0e0762;
+}

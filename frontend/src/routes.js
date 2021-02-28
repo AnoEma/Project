@@ -12,6 +12,8 @@ import subcategoria from './pages/Profile/subCategoria';
 import Curso from './pages/Profile/curso';
 import Tempo from './pages/Profile/tempo';
 import Poema from './pages/Profile/poema/poema';
+import PaginaInicial from './pages/Inicial/index';
+
 
 
 
@@ -19,7 +21,8 @@ export default function Routes(){
   return(
     <BrowserRouter>
      <Switch>
-      <Route path="/" exact component={Login}/>
+       <Route path="/" exact component={PaginaInicial}/>
+      <Route path="/login"  component={Login}/>
       <Route path="/cadastro-cliente" component={Cadastro}/>
       <Route path="/esqueceu-senha" component={EsqueceSenha}/>
       <Route path="/validacao" component={ValidarSenhaRecuperado}/>

@@ -1,0 +1,6 @@
+.containerstyle-container{
+    font-family: sans-serif;
+    height: calc(100vh - 34px - 50px - 64px);
+    padding: 2rem;
+    background-color: rgb(194, 6, 44);
+}

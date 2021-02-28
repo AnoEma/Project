@@ -1,0 +1,16 @@
+.headerstyle-container{
+    align-items: center;
+    background: #060e8a;
+    display: flex;
+    justify-content: space-between;
+    padding: 23px 5rem;
+    margin : auto;
+    color: cornsilk;
+}
+
+/* .headerstyle-container .content{
+    background: rgb(241, 5, 5);
+    height: 100px;
+    width: 100px;
+    justify-content: space-between;
+} */
