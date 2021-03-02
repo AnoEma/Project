@@ -13,8 +13,7 @@ export default function ValidarCadastro(props){
 
               try {
                    await api.post('validacao-cliente', {validarCadastro});
-                   alert('Cadastro foi realizado com sucesso')
-                    history.push('/');     
+                    history.push('/sucesso');     
               } catch (err) {
                    alert('Token Invalido');     
               }

@@ -3,6 +3,9 @@ import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import api from '../../services/api';
 import MaskedInput from 'react-text-mask';
+import Sucesso from '../Cadastro/Sucesso/sucesso';
+import Erro from '../Cadastro/Sucesso/Erro';
+import ReactDOM from 'react-dom';
 
 import './styles.css';
 
@@ -22,7 +25,6 @@ export default function Cadastrar(){
   async function handCadastrar(e){
     e.preventDefault();
     
-
     const data={
       nome,sobreNome,
       email,celular,
@@ -30,7 +32,7 @@ export default function Cadastrar(){
       senha,aceitarReceberEmail
     };
     const pattern= new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-    if(senha != confirmaSenha){
+    if(senha != confirmaSenha || senha == undefined || confirmaSenha == undefined){
       return alert('Verificar a Senha!');
     }
 
@@ -39,13 +41,16 @@ export default function Cadastrar(){
     }
 
     try{
-       await api.post('cadastro-cliente', data);
+      await api.post('cadastro-cliente', data);
       history.push({
         pathname: '/validar-cadastro',
         email: data.email
       });
+      
      } catch(err){
-         alert('Erro no cadastro, tente novamente.');
+        history.push({
+          pathname: '/erro'
+        });
      }
   }
 
@@ -56,7 +61,7 @@ export default function Cadastrar(){
         <section className="form">
           <h1>Cadastro</h1>
           <p>Faça seu cadastro</p>
-          <Link className="back-link" to="/" color="f7f5f5">
+          <Link className="back-link" to="/login" color="f7f5f5">
             <FiArrowLeft size={18} color="#ffffff"/>
               Já tem cadastro
           </Link>

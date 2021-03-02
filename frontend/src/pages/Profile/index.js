@@ -21,7 +21,7 @@ useEffect(() =>{
 
 function handLogout(){
     localStorage.clear();
-    history.push('/');
+    history.push('/login');
 }
 
 function handCurso(cursoId, tipoCurso){

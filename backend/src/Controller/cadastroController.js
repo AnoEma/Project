@@ -21,7 +21,7 @@ module.exports = {
 
     async create(Resquest, Response){
         const {nome, sobreNome, email, aceitarReceberEmail, celular, cidade, uf} = Resquest.body;
-
+        console.log(celular);
         const saltRounds = 10
         const validarCadastro = crypto.randomBytes(4).toString('HEX');
         const salt = bcrypt.genSaltSync(saltRounds);

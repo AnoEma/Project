@@ -29,7 +29,7 @@ export default function Curso(props){
 
    function handLogout(){
       localStorage.clear();
-      history.push('/');
+      history.push('/login');
    }
 
    return(

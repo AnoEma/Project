@@ -13,6 +13,8 @@ import Curso from './pages/Profile/curso';
 import Tempo from './pages/Profile/tempo';
 import Poema from './pages/Profile/poema/poema';
 import PaginaInicial from './pages/Inicial/index';
+import Erro from './pages/Cadastro/Sucesso/Erro';
+import Sucesso from './pages/Cadastro/Sucesso/sucesso';
 
 
 
@@ -33,6 +35,8 @@ export default function Routes(){
       <Route path="/licao" component={Curso}/>
       <Route path="/tempo/:SubCategoriaId" component={Tempo}/>
       <Route path="/poema/:SubCategoriaId" component={Poema}/>
+      <Route path="/erro" component={Erro}/>
+      <Route path="/sucesso" component={Sucesso}/>
      </Switch>
    </BrowserRouter>
  );

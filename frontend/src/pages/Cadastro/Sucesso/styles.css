@@ -1,0 +1,73 @@
+.sucessostyle-container{
+    width: 100%;
+    max-width: 1500px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sucessostyle-container .content{
+
+    padding: 100px;
+    background: #547792;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f4fafaf5;
+}
+
+.sucessostyle-container .iconsucesso{
+    width: 74px;
+}
+
+.sucessostyle-container .btnsucesso{
+    width: 42px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: rgb(37, 219, 37);
+    color: #f4fafaf5;
+    margin-top: 0px !important;
+    position: relative;
+    left: 61px;
+    top: 87px;
+}
+
+.errostyle-container{
+    width: 100%;
+    max-width: 1500px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errostyle-container .content{
+
+    padding: 100px;
+    background: #547792;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f4fafaf5;
+}
+.errostyle-container .btnerro{
+    width: 42px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: rgb(204, 14, 23);
+    color: #f4fafaf5;
+    margin-top: 0px !important;
+    position: relative;
+    left: 61px;
+    top: 87px;
+}
+.errostyle-container .iconerro{
+    width: 74px;
+}
