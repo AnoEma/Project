@@ -12,8 +12,11 @@ export default function ValidarCadastro(props){
               e.preventDefault()
 
               try {
-                   await api.post('validacao-cliente', {validarCadastro});
-                    history.push('/sucesso');     
+                 const data =  await api.post('validacao-cliente', {validarCadastro});
+                   if(data.statusText == "OK"){
+                     history.push('/sucesso');
+                   }
+                         
               } catch (err) {
                    alert('Token Invalido');     
               }

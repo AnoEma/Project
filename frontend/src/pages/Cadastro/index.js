@@ -3,9 +3,6 @@ import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import api from '../../services/api';
 import MaskedInput from 'react-text-mask';
-import Sucesso from '../Cadastro/Sucesso/sucesso';
-import Erro from '../Cadastro/Sucesso/Erro';
-import ReactDOM from 'react-dom';
 
 import './styles.css';
 

@@ -28,7 +28,7 @@ module.exports ={
           await connection('cadastro')
             .where('email', email)
             .update('senha', novoSenha);
-          return Response.json('Sucesso: Ano, voce conseguiu');
+          return Response.status(200).json('Sucesso: Ano, voce conseguiu');
         }
       else{
           return Response.status(401).send({mensagem: 'Falha tenta novamente'});

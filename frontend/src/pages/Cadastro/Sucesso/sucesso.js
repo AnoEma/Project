@@ -1,8 +1,11 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import {FiSmile} from 'react-icons/fi';
 import '../Sucesso/styles.css';
 
 export default function CadastroSucesso(){
+
+    const history = useHistory();
 
     function handbtnSucesso(){
         history.push('/login');
