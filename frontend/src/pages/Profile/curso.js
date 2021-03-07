@@ -12,20 +12,16 @@ export default function Curso(props){
    const subCategoriaId = props.location.subCategoriaId;
    
   useEffect(() =>{
-   buscar();
+   try {        
+      api.get(`iniciando/${subCategoriaId}`)
+       .then(Response =>{
+     setLicao(Response.data);
+  });
+} 
+catch (error) {
+  alert("Não deu certoooo!")
+}
   },[])
-
-   function buscar() {
-      try {        
-             api.get(`iniciando/${subCategoriaId}`)
-              .then(Response =>{
-            setLicao(Response.data);
-         });
-      } 
-      catch (error) {
-         alert("Não deu certoooo!")
-      }
-   };
 
    function handLogout(){
       localStorage.clear();

@@ -12,12 +12,12 @@ export default function EsqueceSenha(){
 
     async function handEsqueceSenha(e){
       e.preventDefault();
-
+      const data ={email}
       try{
-          await api.post('esquecer-senha', {email});
+          await api.post('esquecer-senha', {data});
           history.push({
             pathname:'/validacao',
-            email: email
+            email: data.email
           });
       }catch(err){
         alert('Vai se ferra vacilando');

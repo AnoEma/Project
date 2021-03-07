@@ -12,7 +12,7 @@ module.exports ={
    },
 
    async create(Resquest, Response){
-      const {tipoCurso} = Resquest.body;
+      const {tipoCurso, descricao} = Resquest.body;
 
       const curso = await connection('cursoInicio').where('tipoCurso', tipoCurso).select('id').first();
       

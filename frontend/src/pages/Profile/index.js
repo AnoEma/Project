@@ -33,7 +33,9 @@ function handCurso(cursoId, tipoCurso){
 }
 
 function handPlus(){
-    history.push('/');
+    history.push({
+        pathname:'/adicionar-curso'
+    });
 }
 
 function handUsuario(usuario){

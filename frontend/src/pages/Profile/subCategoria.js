@@ -22,19 +22,34 @@ function handVoltar(){
 }
 
 function handLicao(SubCategoriaId, descricao){
-  if(tipoCurso.includes('verbo')){
-    history.push({
-      pathname: `/tempo/${SubCategoriaId}`,
-      SubCategoriaId: SubCategoriaId,
-      descricao:descricao
-    })
+  switch(tipoCurso){
+    case 'verbo':
+     return history.push({
+        pathname: `/tempo/${SubCategoriaId}`,
+        SubCategoriaId: SubCategoriaId,
+        descricao:descricao
+      });
+      break;
+    case 'poema':
+      return  history.push({
+        pathname: `/poema/${SubCategoriaId}`,
+        SubCategoriaId: SubCategoriaId,
+      });
+      break;
   }
-  else if(tipoCurso.includes('poema')){
-    history.push({
-      pathname: `/poema/${SubCategoriaId}`,
-      SubCategoriaId: SubCategoriaId,
-    })
-  }
+  // if(tipoCurso.includes('verbo')){
+  //   history.push({
+  //     pathname: `/tempo/${SubCategoriaId}`,
+  //     SubCategoriaId: SubCategoriaId,
+  //     descricao:descricao
+  //   })
+  // }
+  // else if(tipoCurso.includes('poema')){
+  //   history.push({
+  //     pathname: `/poema/${SubCategoriaId}`,
+  //     SubCategoriaId: SubCategoriaId,
+  //   })
+  // }
 
 }
 

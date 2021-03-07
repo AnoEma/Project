@@ -27,9 +27,13 @@
     max-width: 380px;
 }
 
-.globalstyle-container .content section h1{
+/* .globalstyle-container .content section h1{
     margin:  64px 0 29px;
     font-size: 32px;
+} */
+.globalstyle-container .content section h1 {
+    margin: -4px 0px 0px;
+    font-size: 33px;
 }
 
 .globalstyle-container .content section p{
