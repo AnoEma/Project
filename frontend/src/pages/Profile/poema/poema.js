@@ -8,7 +8,8 @@ export default function Poemas(props){
     const [poema, setPoema] = useState([]);
 
     const history = useHistory();
-    const poemaId = props.location.SubCategoriaId;    
+    const poemaId = props.location.SubCategoriaId; 
+    const cursoId = props.location.cursoId   
 
     useEffect(() =>{
        try {
@@ -25,7 +26,7 @@ export default function Poemas(props){
     function handVoltar(poemaId){
       history.push({
         pathname: `/subcategoria-curso`,
-        cursoId: poemaId[0],
+        cursoId: cursoId,
         tipoCurso:'poema'
       });
     }

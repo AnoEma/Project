@@ -16,6 +16,7 @@ import PaginaInicial from './pages/Inicial/index';
 import Erro from './pages/Cadastro/Sucesso/Erro';
 import Sucesso from './pages/Cadastro/Sucesso/sucesso';
 import CadastrarCurso from './pages/Profile/poema/cadastroCurso/indexCurso';
+import AddSubcategoria from './pages/Profile/poema/cadastroCurso/addSubcategoria';
 
 
 
@@ -39,6 +40,7 @@ export default function Routes(){
       <Route path="/erro" component={Erro}/>
       <Route path="/sucesso" component={Sucesso}/>
       <Route path="/adicionar-curso" component={CadastrarCurso}/>
+      <Route path="/adicionar-subcategoria" component={AddSubcategoria} />
      </Switch>
    </BrowserRouter>
  );

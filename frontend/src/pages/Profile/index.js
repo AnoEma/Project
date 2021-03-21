@@ -9,6 +9,7 @@ import api from '../../services/api';
 
 export default function Profile(props){
 const [cursos, setCurso] = useState([]);
+const [inHover, setHover] = useState(false);
 const usuario = props.location.email;
 
 const history = useHistory()
@@ -38,6 +39,7 @@ function handPlus(){
     });
 }
 
+
 function handUsuario(usuario){
     // try {
     //     api.post('usuario-logado', usuario).then(Response =>{Response.data});
@@ -53,7 +55,7 @@ return(
             <button className="buton" onClick={handPlus} type="button">
                 <FiPlus size={18} color="#E02041"/>
             </button>
-            <button onClick={handLogout} type="button">
+            <button className="button" onClick={handLogout} type="button">
               <FiPower size={18} color= "#E02041"/>
             </button>
         </header>
@@ -61,9 +63,12 @@ return(
         <h1>Curso da Lingua Francês</h1>
         <ul>
             {cursos.map(curso =>(
-                <li key={curso.id} onClick={() => handCurso(curso.id, curso.tipoCurso)} >
+                <li key={curso.id} onClick={() => handCurso(curso.id, curso.tipoCurso)} 
+                onMouseEnter={() =>setHover(true)}
+                onMouseLeave={() => setHover(false)}>
                     <strong>Curso Sobre:</strong>
                     <p>{curso.tipoCurso}</p>
+                    {/* {inHover &&<p>{curso.descricao}</p>} */}
                 </li>
             ))}
         </ul>

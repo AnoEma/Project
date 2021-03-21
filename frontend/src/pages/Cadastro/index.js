@@ -80,10 +80,10 @@ export default function Cadastrar(){
           onChange={e => setEmail(e.target.value)}
           />
           <MaskedInput 
-          mask={['(', /[0-9]/, /\d/,')', ' ', /\d/, /\d/, /\d/, /\d/,/\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+          mask={['(', /[0-9]/, /\d/,')',' ', /\d/, /\d/, /\d/, /\d/,/\d/, '-', /\d/, /\d/, /\d/, /\d/]}
           placeholder="Celular"
           value={celular}
-          onChange={e => setCelular(e.target.value)}
+          onChange={e => setCelular(e.target.value.replace(/[-\\^$*+?.()|[\]{}' ']/g, ''))}
           />
           <div className="input-group">
           <input 
